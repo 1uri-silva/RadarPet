@@ -1,0 +1,36 @@
+{
+  "pets": [
+    {
+      "id": "89e971a4-68ef-4127-bc7e-c706ae65e01b",
+      "name": "Teste",
+      "location": {
+        "latitude": -15.9627887,
+        "longitude": -44.8593438
+      }
+    },
+    {
+      "id": "379b9faf-d2e8-4db1-8be2-ad6d2efaeccc",
+      "name": "Três ",
+      "location": {
+        "latitude": -15.9627373,
+        "longitude": -44.8593261
+      }
+    },
+    {
+      "id": "ffa01f34-c406-4a61-84fa-43928007942e",
+      "name": "Blue ",
+      "location": {
+        "latitude": -15.962792,
+        "longitude": -44.8593479
+      }
+    },
+    {
+      "id": "6829720b-aacb-4a95-8cf3-a79ea1f6a56d",
+      "name": "Test ",
+      "location": {
+        "latitude": -15.9627376,
+        "longitude": -44.8593237
+      }
+    }
+  ]
+}

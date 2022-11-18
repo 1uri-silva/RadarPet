@@ -4,15 +4,29 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
+    "server": "json-server -H 10.0.0.108 -w data.json -p 3000",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@react-navigation/native": "^6.0.13",
+    "@react-navigation/native-stack": "^6.9.1",
+    "@tanstack/react-query": "^4.16.1",
+    "@types/react": "~18.0.24",
+    "@types/react-native": "~0.70.6",
+    "axios": "^1.1.3",
     "expo": "~47.0.6",
+    "expo-location": "~15.0.1",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
-    "react-native": "0.70.5"
+    "react-native": "0.70.5",
+    "react-native-maps": "1.3.2",
+    "react-native-safe-area-context": "4.4.1",
+    "react-native-screens": "~3.18.0",
+    "react-native-uuid": "^2.0.1",
+    "typescript": "^4.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
