@@ -1,19 +1,14 @@
-import * as Location from 'expo-location';
+import { useContext } from 'react';
+import { LocationContext } from '../contexts/locationContext';
 
 const useLocation = () => {
-	const getCoordinates = async () => {
-		const {
-			coords: { latitude, longitude },
-		} = await Location.getCurrentPositionAsync();
-		return {
-			latitude,
-			longitude,
-			latitudeDelta: 0.0122,
-			longitudeDelta: 0.0123,
-		};
-	};
+	const context = useContext(LocationContext);
 
-	return { getCoordinates };
+	if (!context) {
+		throw new Error('Location context is not initialized');
+	}
+
+	return context;
 };
 
 export { useLocation };

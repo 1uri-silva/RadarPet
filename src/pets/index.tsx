@@ -1,11 +1,11 @@
+import { useCallback, useEffect, useState } from 'react';
 import { Alert, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import uuid from 'react-native-uuid';
 
 import { api } from '../services';
 import { useLocation } from '../hooks/useLocation';
-import { useCallback, useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
 
 type PetsData = {
 	id: string;
@@ -18,23 +18,8 @@ type PetsData = {
 
 const Pets: React.FC = () => {
 	const { goBack } = useNavigation();
-	const { getCoordinates } = useLocation();
+	const { region, getCoordinates } = useLocation();
 	const [petName, setPetName] = useState('');
-
-	const [location, setLocation] = useState({
-		latitude: null,
-		longitude: null,
-	});
-	useEffect(() => {
-		(async () => {
-			const { latitude, longitude } = await getCoordinates();
-
-			setLocation({
-				latitude,
-				longitude,
-			});
-		})();
-	}, []);
 
 	const handlePostApi = useCallback(() => {
 		Alert.alert(
@@ -51,8 +36,8 @@ const Pets: React.FC = () => {
 								id: uuid.v4(),
 								name: petName,
 								location: {
-									latitude: location.latitude,
-									longitude: location.longitude,
+									latitude: region.latitude,
+									longitude: region.longitude,
 								},
 							})
 							.then(() => goBack());
@@ -60,7 +45,11 @@ const Pets: React.FC = () => {
 				},
 			]
 		);
-	}, [location, petName]);
+	}, [region, petName]);
+
+	useEffect(() => {
+		getCoordinates();
+	}, []);
 
 	return (
 		<View style={{ flex: 1 }}>

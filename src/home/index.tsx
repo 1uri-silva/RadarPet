@@ -58,6 +58,8 @@ const Home: React.FC = () => {
 			<FlatList
 				data={data}
 				renderItem={renderItem}
+				showsVerticalScrollIndicator={false}
+				style={{ marginBottom: 90 }}
 				keyExtractor={(item) => item.id}
 				ListHeaderComponent={() => (
 					<View
