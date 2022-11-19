@@ -44,6 +44,7 @@ const LocationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 			latitudeDelta: 0.0922,
 			longitudeDelta: 0.0421,
 		});
+
 	}, []);
 
 	const values = useMemo(

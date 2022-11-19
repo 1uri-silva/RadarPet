@@ -4,9 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { ScreensStackNavigator } from './navigation';
 
-import Home from '../home';
-import Pets from '../pets';
-import Map from '../map';
+import Home from '../screens/home';
+import Pets from '../screens/pets';
+import Map from '../screens/map';
 
 export default function AppRoutes() {
 	const { Navigator, Screen } =
@@ -15,6 +15,7 @@ export default function AppRoutes() {
 	return (
 		<NavigationContainer>
 			<Navigator
+				initialRouteName='Home'
 				screenOptions={{
 					headerShown: false,
 				}}
