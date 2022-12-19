@@ -1,70 +1,49 @@
-import { useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
-import {
-	FlatList,
-	ListRenderItem,
-	StyleSheet,
-	Text,
-	TouchableOpacity,
-} from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
-import { api } from '../../services';
-import Header from '../../components/header';
-import Loading from '../../components/loading';
+import { Header } from '#components/header';
+import { Loading } from '#components/loading';
+import { Touchable } from '#components/touchable';
+import { ListPets } from '#components/itemsListPets';
 
-type PetsData = {
-	id: string;
-	name: string;
-	location: {
-		latitude: number;
-		longitude: number;
-	};
-};
+import { handleGetAllPets } from '#functions/api/handleGetAllPets';
+
+import { Pet } from '#models/Pets';
 
 const Home: React.FC = () => {
 	const { navigate } = useNavigation();
 
-	const { data, isLoading } = useQuery<PetsData[] | null>({
-		queryKey: ['pets'],
-		refetchInterval: 3000,
-		queryFn: () => api.get('pets').then((res) => res.data),
+	const { data, isLoading } = useQuery<Pet[] | null>({
+		queryFn: () => handleGetAllPets(),
 	});
-
-	const renderItem: ListRenderItem<PetsData> = useCallback(
-		({ item }) => (
-			<TouchableOpacity
-				onPress={() =>
-					navigate('Map', {
-						latitude: item.location.latitude,
-						longitude: item.location.longitude,
-					})
-				}
-				style={styles.containerListItems}
-			>
-				<Text style={{ fontSize: 17, fontWeight: '400' }}>{item.name}</Text>
-			</TouchableOpacity>
-		),
-		[navigate]
-	);
 
 	return (
 		<>
 			<FlatList
 				data={data}
-				renderItem={renderItem}
+				renderItem={({ item }) => (
+					<ListPets
+						pets={item}
+						onPress={() =>
+							navigate('Map', {
+								latitude: item.location.latitude,
+								longitude: item.location.longitude,
+							})
+						}
+					/>
+				)}
 				style={{ marginBottom: 90 }}
 				keyExtractor={(item) => item.id}
 				showsVerticalScrollIndicator={false}
 				ListHeaderComponent={() => <Header iconGoBack={false} title='PETS' />}
 				ListFooterComponent={() => isLoading && <Loading />}
 			/>
-			<TouchableOpacity
+			<Touchable
+				title='Criar novo pet'
 				onPress={() => navigate('Pets')}
 				style={styles.buttonNewPet}
-			>
-				<Text style={styles.newPetText}>Criar novo pet</Text>
-			</TouchableOpacity>
+			/>
 		</>
 	);
 };
@@ -87,14 +66,5 @@ const styles = StyleSheet.create({
 		color: 'white',
 		fontWeight: '600',
 	},
-	containerListItems: {
-		width: '97%',
-		height: 50,
-		padding: 10,
-		marginTop: 10,
-		marginLeft: 8,
-		borderBottomWidth: 0.7,
-		borderBottomColor: 'gray',
-	},
 });
-export default Home;
+export { Home };

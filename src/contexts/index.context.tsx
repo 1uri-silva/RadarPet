@@ -5,4 +5,4 @@ const ContextsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	return <LocationProvider>{children}</LocationProvider>;
 };
 
-export default ContextsProvider;
+export { ContextsProvider };

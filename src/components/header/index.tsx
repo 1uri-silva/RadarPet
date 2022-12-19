@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
 	},
 	viewContent: { width: 50, height: 50 },
 });
-export default Header;
+export { Header };

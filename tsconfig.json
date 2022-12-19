@@ -1,4 +1,16 @@
 {
-  "compilerOptions": {},
-  "extends": "expo/tsconfig.base"
+	"extends": "expo/tsconfig.base",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"#hooks/*": ["./src/hooks/*"],
+			"#routes/*": ["./src/routes/*"],
+			"#models/*": ["./src/models/*"],
+			"#screens/*": ["./src/screens/*"],
+			"#contexts/*": ["./src/contexts/*"],
+			"#services/*": ["./src/services/*"],
+			"#functions/*": ["./src/functions/*"],
+			"#components/*": ["./src/components/*"]
+		}
+	}
 }

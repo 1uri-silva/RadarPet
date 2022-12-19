@@ -1,11 +1,11 @@
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useRoute } from '@react-navigation/native';
 
-import { useLocation } from '../../hooks/useLocation';
+import { useLocation } from '#hooks/useLocation';
 
 const Map: React.FC = () => {
 	const { params } = useRoute();
-	const { region } = useLocation();
+	const { initialRegion, latitudeDelta, longitudeDelta } = useLocation();
 
 	const { latitude, longitude } = params as {
 		latitude: number;
@@ -15,7 +15,12 @@ const Map: React.FC = () => {
 	return (
 		<MapView
 			style={{ flex: 1 }}
-			initialRegion={region}
+			initialRegion={{
+				latitude: initialRegion.latitude,
+				longitude: initialRegion.longitude,
+				latitudeDelta: latitudeDelta,
+				longitudeDelta: longitudeDelta,
+			}}
 			provider={PROVIDER_GOOGLE}
 		>
 			<Marker
@@ -28,4 +33,4 @@ const Map: React.FC = () => {
 	);
 };
 
-export default Map;
+export { Map };

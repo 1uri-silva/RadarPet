@@ -4,9 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { ScreensStackNavigator } from './navigation';
 
-import Home from '../screens/home';
-import Pets from '../screens/pets';
-import Map from '../screens/map';
+import { Home } from '#screens/home';
+import { Pets } from '#screens/pets';
+import { Map } from '#screens/map';
 
 export default function AppRoutes() {
 	const { Navigator, Screen } =

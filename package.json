@@ -4,7 +4,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "server": "json-server -H 10.0.0.108 -w data.json -p 3000",
+    "server": "json-server -H 10.0.0.105 -w data.json -p 3000",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
@@ -17,6 +17,7 @@
     "@types/react": "~18.0.24",
     "@types/react-native": "~0.70.6",
     "axios": "^1.1.3",
+    "babel-plugin-module-resolver": "^4.1.0",
     "expo": "~47.0.6",
     "expo-location": "~15.0.1",
     "expo-status-bar": "~1.4.2",

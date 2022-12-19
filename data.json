@@ -1,3 +1,34 @@
 {
-  "pets": []
+  "pets": [
+    {
+      "id": "7702469d-17da-48d3-ade0-cc6b301249dc",
+      "name": "Dog",
+      "age": 5,
+      "species": "Pastor Alemão",
+      "location": {
+        "latitude": -15.9627552,
+        "longitude": -44.8593053
+      }
+    },
+    {
+      "id": "e683a859-296f-4615-9ec0-edcea33c8707",
+      "name": "",
+      "age": 0,
+      "species": "",
+      "location": {
+        "latitude": -15.9627481,
+        "longitude": -44.859417
+      }
+    },
+    {
+      "id": "8fddee8e-624f-46c9-bd12-da70b01513bf",
+      "name": "Reg",
+      "age": 10,
+      "species": "Esticado",
+      "location": {
+        "latitude": -15.9627481,
+        "longitude": -44.859417
+      }
+    }
+  ]
 }
